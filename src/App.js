@@ -1,13 +1,14 @@
-import React from 'react';
-import './App.css';
-import LoginPage from './components/LoginPage'; // Make sure this path matches your file structure
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import LoginPage from './components/LoginPage';
+import RegisterPage from './components/RegisterPage';
 
 function App() {
-  return (
-      <div className="App">
-        <LoginPage />
-      </div>
-  );
+    return (
+        <Router>
+            <Routes>
+                <Route path="/" element={<LoginPage />} />
+                <Route path="/register" element={<RegisterPage />} />
+            </Routes>
+        </Router>
+    );
 }
-
-export default App;
