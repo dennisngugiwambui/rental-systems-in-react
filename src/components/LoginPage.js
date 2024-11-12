@@ -8,7 +8,6 @@ const LoginPage = () => {
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
 
-
     const handleSubmit = (e) => {
         e.preventDefault();
         // Handle login logic here
@@ -21,18 +20,19 @@ const LoginPage = () => {
 
     const handleForgotPassword = (e) => {
         e.preventDefault();
-        // Handle forgot password logic
+        navigate('/forgot-password');  // Added navigation to forgot password page
     };
+
     const handleRegisterRedirect = (e) => {
         e.preventDefault();
         navigate('/register');
     };
 
-
     return (
         <div className="flex h-screen w-full bg-gray-50">
             {/* Left Side - Image Section */}
             <div className="hidden lg:flex lg:w-1/2 bg-blue-600 relative">
+                {/* Previous left side content remains the same */}
                 <div className="absolute inset-0 bg-blue-700 opacity-20 z-10">
                     <div className="absolute inset-0" style={{
                         backgroundImage: 'radial-gradient(circle at 25px 25px, rgba(255,255,255,0.2) 2%, transparent 0%)',
@@ -62,15 +62,16 @@ const LoginPage = () => {
                         <p className="mt-2 text-sm text-gray-600">
                             Or{' '}
                             <button
-                                onClick={handleTrialClick}
+                                onClick={handleRegisterRedirect}
                                 className="font-medium text-blue-600 hover:text-blue-500 underline"
                             >
-                                start your 14-day free trial
+                                create a new account
                             </button>
                         </p>
                     </div>
 
                     <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
+                        {/* Email and Password fields remain the same */}
                         <div className="space-y-4">
                             <div className="relative">
                                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -159,6 +160,19 @@ const LoginPage = () => {
                             <button className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-lg shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
                                 Microsoft
                             </button>
+                        </div>
+
+                        {/* Added Sign Up Link at the bottom */}
+                        <div className="mt-6 text-center">
+                            <p className="text-sm text-gray-600">
+                                Don't have an account?{' '}
+                                <button
+                                    onClick={handleRegisterRedirect}
+                                    className="font-medium text-blue-600 hover:text-blue-500 underline"
+                                >
+                                    Sign up now
+                                </button>
+                            </p>
                         </div>
                     </div>
                 </div>
