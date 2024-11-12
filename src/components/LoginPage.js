@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Lock, Mail, Eye, EyeOff } from 'lucide-react';
 
 const LoginPage = () => {
     const [showPassword, setShowPassword] = useState(false);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const navigate = useNavigate();
+
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -20,6 +23,11 @@ const LoginPage = () => {
         e.preventDefault();
         // Handle forgot password logic
     };
+    const handleRegisterRedirect = (e) => {
+        e.preventDefault();
+        navigate('/register');
+    };
+
 
     return (
         <div className="flex h-screen w-full bg-gray-50">
